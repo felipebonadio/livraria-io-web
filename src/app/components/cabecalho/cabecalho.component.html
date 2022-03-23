@@ -1,0 +1,49 @@
+<div class="cabecalho">
+  <div>
+    <a href="/"
+      ><img
+        class="logo"
+        src="../../../assets/logo.png"
+        alt="Logo da plataforma com o nome Livraria io"
+    /></a>
+  </div>
+  <form [formGroup]="searchForm" (ngSubmit)="procurarLivro()">
+    <div class="search">
+      <input
+        formControlName="livro"
+        type="text"
+        name="Procurar"
+        placeholder="Pesquise seu livro"
+      />
+      <button mat-icon-button type="submit" class="btn btn-modify">
+        <mat-icon>search</mat-icon>
+      </button>
+    </div>
+  </form>
+  <div class="categoria">
+    <button
+      class="categoria"
+      data-test="categoria"
+      mat-icon-button
+      [matMenuTriggerFor]="menu"
+      aria-label="menu de categorias"
+    >
+      Compre por categoria
+      <mat-icon>keyboard_arrow_down</mat-icon>
+    </button>
+
+    <mat-menu #menu="matMenu">
+      <div *ngFor="let categoria of categorias">
+        <a>
+          <button
+            data-test="categoria-nome"
+            mat-menu-item
+            [routerLink]="['/categoria', categoria.nome]"
+          >
+            {{ categoria.nome }}
+          </button>
+        </a>
+      </div>
+    </mat-menu>
+  </div>
+</div>
