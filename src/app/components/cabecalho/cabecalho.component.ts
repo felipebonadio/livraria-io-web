@@ -33,7 +33,11 @@ export class CabecalhoComponent implements OnInit {
   });
 
   procurarLivro(): void {
-    let nome = this.searchForm.value.livro;
-    this.router.navigate(['/pesquisa', nome]);
+    let nome = this.searchForm.value.livro.trim();
+    if (nome == '' || nome == null || nome.length < 3) {
+      this.router.navigateByUrl('');
+    } else {
+      this.router.navigate(['/pesquisa', nome]);
+    }
   }
 }

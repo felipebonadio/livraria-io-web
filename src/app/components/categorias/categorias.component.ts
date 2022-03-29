@@ -14,6 +14,9 @@ export class CategoriasComponent implements OnInit {
   livros: Livro[] = [];
   totalElements: number = 0;
 
+  isLoading = true;
+  hasBooks = true;
+
   constructor(private route: ActivatedRoute, private service: LivrosService) { }
 
   ngOnInit(): void {
@@ -24,12 +27,15 @@ export class CategoriasComponent implements OnInit {
   private getLivros(nome: string, request: { page: string; size: string; }): void {
     this.service.buscarLivrosPorCategoria(nome, request).subscribe(
       (data) => {
+        this.isLoading = false;
         this.livros = data['content'];
         this.totalElements = data['totalElements'];
+        if (this.livros.length == 0) {
+          this.hasBooks = false;
+        }
       },
       (error) => {
         console.log(error.error.message);
-
       }
     );
 
@@ -40,5 +46,4 @@ export class CategoriasComponent implements OnInit {
 
     this.getLivros(nome, request);
   }
-
 }

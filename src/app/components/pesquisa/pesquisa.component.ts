@@ -13,27 +13,35 @@ export class PesquisaComponent implements OnInit {
   livros: Livro[] = [];
   totalElements: number = 0;
 
-  constructor(private route: ActivatedRoute, private service: LivrosService) { }
+  isLoading = true;
+  hasBooks = true;
+
+  constructor(private route: ActivatedRoute, private service: LivrosService) {}
 
   ngOnInit(): void {
     const nome = String(this.route.snapshot.paramMap.get('nome'));
     this.getLivros(nome, { page: '0', size: '10' });
   }
-  private getLivros(nome: string, request: { page: string; size: string; }): void {
-    this.service.buscarLivrosPorTituloOuAutor(nome, request).subscribe(
-      (data) => {
+  private getLivros(
+    nome: string,
+    request: { page: string; size: string }
+  ): void {
+    this.service
+      .buscarLivrosPorTituloOuAutor(nome, request)
+      .subscribe((data) => {
+        this.isLoading = false;
         this.livros = data['content'];
         this.totalElements = data['totalElements'];
-      },
-      (error) => {
-        console.log(error.error.message);
-
-      }
-    );
-
+        if (this.livros.length == 0) {
+          this.hasBooks = false;
+        }
+      });
   }
   proximaPagina(event: PageEvent): void {
-    const request = { page: event.pageIndex.toString(), size: event.pageSize.toString() }
+    const request = {
+      page: event.pageIndex.toString(),
+      size: event.pageSize.toString(),
+    };
     const nome = String(this.route.snapshot.paramMap.get('nome'));
 
     this.getLivros(nome, request);

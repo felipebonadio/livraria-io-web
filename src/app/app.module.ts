@@ -18,8 +18,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { CategoriasComponent } from './components/categorias/categorias.component';
 import { PesquisaComponent } from './components/pesquisa/pesquisa.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
+import {
+  MatPaginatorIntl,
+  MatPaginatorModule,
+} from '@angular/material/paginator';
 import { getPortuguesPaginatorIntl } from './utils/ptbr-paginator-intl';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -46,9 +50,12 @@ import { getPortuguesPaginatorIntl } from './utils/ptbr-paginator-intl';
     MatIconModule,
     ReactiveFormsModule,
     FormsModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatProgressSpinnerModule
   ],
-  providers: [{provide: MatPaginatorIntl, useValue: getPortuguesPaginatorIntl()}],
+  providers: [
+    { provide: MatPaginatorIntl, useValue: getPortuguesPaginatorIntl() },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

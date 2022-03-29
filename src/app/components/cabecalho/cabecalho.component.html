@@ -8,19 +8,20 @@
     /></a>
   </div>
   <form [formGroup]="searchForm" (ngSubmit)="procurarLivro()">
-    <div class="search">
+    <div class="search" id="Procurar">
       <input
+        id="Input"
         formControlName="livro"
         type="text"
         name="Procurar"
         placeholder="Pesquise seu livro"
       />
       <button mat-icon-button type="submit" class="btn btn-modify">
-        <mat-icon>search</mat-icon>
+        <mat-icon id="BotaoProcurar">search</mat-icon>
       </button>
     </div>
   </form>
-  <div class="categoria">
+  <div class="categoria" id="Categorias">
     <button
       class="categoria"
       data-test="categoria"
@@ -35,7 +36,7 @@
     <mat-menu #menu="matMenu">
       <div *ngFor="let categoria of categorias">
         <a>
-          <button
+          <button id="{{categoria.nome}}"
             data-test="categoria-nome"
             mat-menu-item
             [routerLink]="['/categoria', categoria.nome]"

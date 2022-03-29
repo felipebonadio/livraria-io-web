@@ -4,7 +4,7 @@
 <div class="centro">
   <div class="box">
     <div *ngFor="let livro of livros" class="linha">
-      <a class="zoom" [routerLink]="['/livro', livro.id]">
+      <a id="Livro" class="zoom" [routerLink]="['/livro', livro.id]">
         <div class="capa">
           <img
             data-test="livro-capa"
@@ -14,7 +14,7 @@
           />
         </div>
         <div class="titulo">
-          <h4 data-test="livro-titulo" id="titulo">{{ livro.titulo }}</h4>
+          <h4 data-test="livro-titulo">{{ livro.titulo }}</h4>
         </div>
         <div class="autor">
           <h5 data-test="livro-autor">{{ livro.autorDTO.nome }}</h5>

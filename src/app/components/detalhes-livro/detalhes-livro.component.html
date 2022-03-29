@@ -3,21 +3,21 @@
 <ng-template #freeza>
 <div class="box">
   <div class="box1">
-    <h2 data-test="livro-titulo">{{ livro.titulo }}</h2>
-    <h3 data-test="livro-autor">{{ livro.autorDTO.nome }}</h3>
+    <h2 id="Titulo" data-test="livro-titulo">{{ livro.titulo }}</h2>
+    <h3 id="Autor" data-test="livro-autor">{{ livro.autorDTO.nome }}</h3>
   </div>
   <div class="box2">
     <div class="box-capa">
-      <img data-test="livro-capa" src="{{ livro.capa }}" />
+      <img id="Capa" data-test="livro-capa" src="{{ livro.capa }}" />
     </div>
     <div class="box-preco">
-      <p data-test="livro-preco">
-        <strong>Preço:</strong> {{ livro.preco | currency: "BRL" }}
+      <p data-test="livro-preco" id="Preco">
+        <strong >Preço:</strong> {{ livro.preco | currency: "BRL" }}
       </p>
     </div>
   </div>
 
-  <div class="box3">
+  <div class="box3" id="Detalhes">
     <h3>Informações do produto</h3>
 
     <table class="mat-elevation-z2">

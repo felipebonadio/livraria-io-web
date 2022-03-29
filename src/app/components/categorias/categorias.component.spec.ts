@@ -61,13 +61,19 @@ describe('CategoriasComponent', () => {
   });
 
   it('Deve renderizar o livro filtrado pela categoria', () => {
-    const componentDom: HTMLElement = fixture.nativeElement;
+    component.hasBooks=true;
+    component.isLoading=false;
+    fixture.detectChanges();
+    
+    const componentDom = fixture.debugElement.nativeElement;
 
     const livroNome = componentDom.querySelector('[data-test="livro-titulo"]')!;
     const livroAutor = componentDom.querySelector('[data-test="livro-autor"]')!;
     const livroCapa = componentDom.querySelector('[data-test="livro-capa"]')!;
+    console.log(livroNome);
 
     expect(livroNome.textContent).toContain(livrosMock[0].titulo);
+    
     expect(livroAutor.textContent).toContain(livrosMock[0].autorDTO.nome);
     expect(livroCapa.getAttribute('src')).toContain(livrosMock[0].capa);
   });

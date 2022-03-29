@@ -1,8 +1,17 @@
-<div *ngIf="livros.length; then listaLivros; else listaVazia"></div>
-
+<div *ngIf="hasBooks; then listaLivros; else listaVazia"></div>
+<div class="spinner" *ngIf="isLoading">
+  <mat-progress-spinner color="primary" mode="indeterminate">
+  </mat-progress-spinner>
+</div>
 <ng-template #listaLivros>
   <h1>Livros</h1>
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="10" [length]="totalElements" (page)="proximaPagina($event)"> </mat-paginator>
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 20]"
+    [pageSize]="10"
+    [length]="totalElements"
+    (page)="proximaPagina($event)"
+  >
+  </mat-paginator>
 
   <div class="centro">
     <div class="box">
@@ -23,7 +32,9 @@
             <h5 data-test="livro-autor">{{ livro.autorDTO.nome }}</h5>
           </div>
           <div class="preco">
-            <span data-test="livro-preco">{{ livro.preco | currency: 'BRL' }}</span>
+            <span data-test="livro-preco">{{
+              livro.preco | currency: "BRL"
+            }}</span>
           </div>
         </a>
       </div>

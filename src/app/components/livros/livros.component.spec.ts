@@ -5,6 +5,7 @@ import { Livro } from 'src/app/model/livro';
 
 import { LivrosComponent } from './livros.component';
 import { LivrosService } from '../../services/livros.service';
+import { MatPaginator } from '@angular/material/paginator';
 
 describe('LivrosComponent', () => {
   let component: LivrosComponent;
@@ -30,7 +31,7 @@ describe('LivrosComponent', () => {
         email: 'uncle@Blob.com.br',
         descricao: ' descrição aqui',
         dataCriacao: '01/02/2022',
-      },
+      }, 
     },
   ];
 
@@ -41,7 +42,7 @@ describe('LivrosComponent', () => {
   };
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [LivrosComponent],
+      declarations: [LivrosComponent,MatPaginator],
       imports: [HttpClientTestingModule],
       providers: [{ provide: LivrosService, useValue: livrosServiceMock }],
     }).compileComponents();
@@ -62,10 +63,11 @@ describe('LivrosComponent', () => {
 
     const livroNome = componentDom.querySelector('[data-test="livro-titulo"]')!;
     const livroAutor = componentDom.querySelector('[data-test="livro-autor"]')!;
-    const livroCapa = componentDom.querySelector('[data-test="livro-capa"]')!;
-
+    const livroCapa = componentDom.querySelector('[data-test="livro-capa"]')!; 
+    console.log(livroNome);
     expect(livroNome.textContent).toContain(livrosMock[0].titulo);
     expect(livroAutor.textContent).toContain(livrosMock[0].autorDTO.nome);
     expect(livroCapa.getAttribute('src')).toContain(livrosMock[0].capa);
+    
   });
 });
