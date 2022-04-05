@@ -12,7 +12,7 @@ describe('CategoriaService', () => {
   let service: CategoriaService;
   let httpTestingController: HttpTestingController;
 
-  beforeEach(() => {
+  beforeEach(() => { 
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule, RouterTestingModule],
     });

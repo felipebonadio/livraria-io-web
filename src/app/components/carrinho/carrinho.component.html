@@ -1,0 +1,40 @@
+<div class="titulo">
+  <div><h1>Seu carrinho</h1></div>
+  <div class="botao-limpar"><button  mat-raised-button color="primary" (click)="limparCarrinho()"><mat-icon>remove_shopping_cart</mat-icon></button></div>
+</div>
+
+<div class="centro">
+  <table>
+    <tr>
+      <th>Item</th>
+      <th class="largura-menor">Qtd</th>
+      <th class="largura-menor">Preço</th>
+      <th class="largura-menor">Total</th>
+    </tr>
+    <tr *ngFor="let item of items">
+      <td>
+        <div class="conteudo-item">
+          <div><img class="capa" src="{{ item.livroCarrinhoDTO.capa }}" alt="" /></div>
+          <div>{{ item.livroCarrinhoDTO.titulo }}</div>
+        </div>
+      </td>
+      <td> 
+        <div class="inputECtrls">
+          <button class="ctrl" (click)="diminuirItem(item.livroCarrinhoDTO.id)">-</button>       
+          <input
+            class="largura-input"
+            [ngModel]="item.quantidadeDeLivros"
+            (ngModelChange)="aumentarItem(item.livroCarrinhoDTO.id)"
+            type="number"
+            min="0"
+            name=""
+            id=""
+          />
+          <button class="ctrl"(click)="aumentarItem(item.livroCarrinhoDTO.id)">+</button>
+        </div>        
+      </td>
+      <td>{{ item.livroCarrinhoDTO.preco | currency: "BRL" }}</td>
+      <td>{{ calcularPreco(item.livroCarrinhoDTO.preco, item.quantidadeDeLivros) | currency: "BRL" }}</td>
+    </tr>
+  </table>
+</div>

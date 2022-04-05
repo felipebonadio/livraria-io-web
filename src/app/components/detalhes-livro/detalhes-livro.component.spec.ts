@@ -15,7 +15,7 @@ describe('DetalhesLivroComponent', () => {
     id: 1,
     titulo: 'Clean Code',
     sumario: '[Aqui entra o sumario]',
-    preco: '100.00',
+    preco: 100.00,
     numeroPaginas: 398,
     isbn: '985...',
     capa: '../assets/cleanCode.jpg',

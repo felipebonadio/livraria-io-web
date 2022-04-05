@@ -4,7 +4,7 @@ export interface Livro {
   id: number;
   titulo: string;
   sumario: string;
-  preco: string;
+  preco: number;
   numeroPaginas: number;
   isbn: string;
   dataPublicacao?: Date;

@@ -24,6 +24,7 @@ import {
 } from '@angular/material/paginator';
 import { getPortuguesPaginatorIntl } from './utils/ptbr-paginator-intl';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { CarrinhoComponent } from './components/carrinho/carrinho.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     CabecalhoComponent,
     CategoriasComponent,
     PesquisaComponent,
+    CarrinhoComponent,
   ],
 
   imports: [
