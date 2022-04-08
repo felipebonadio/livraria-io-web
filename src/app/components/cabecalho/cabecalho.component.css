@@ -1,7 +1,7 @@
 .cabecalho {
   display: grid;
   margin: 3% 10% 3% 10%;
-  grid-template-columns: 30% 70%;
+  grid-template-columns: 30% 50% 20%;
 }
 
 .logo {
@@ -17,6 +17,7 @@
 a {
   text-decoration: none;
   color: black;
+  vertical-align: auto;
 }
 
 .mat-icon-button {
@@ -37,8 +38,8 @@ input {
 }
 
 input:focus {
-  box-shadow: 0 0 0 0;  
-  outline: 0;  
+  box-shadow: 0 0 0 0;
+  outline: 0;
   }
 
 .search {
@@ -48,17 +49,27 @@ input:focus {
 }
 
 mat-icon {
-  font-size: 30px;  
+  font-size: 30px;
 }
 
 .btn-margem {
   margin-top: 7%;
 }
 
+.carrinho {
+  margin-top: 3%;
+  margin-left: 60%;
+  vertical-align: center;
+}
+
+.carrinho-icon {
+  color: #5584ac;
+}
+
 @media (max-width: 768px) {
   .cabecalho {
     display: grid;
-    grid-template-columns: auto;
+    grid-template-columns:auto;
     margin: 2% 0 0 14%;
   }
 
@@ -68,9 +79,9 @@ mat-icon {
   }
 
   .search {
-    margin-left: 0;    
+    margin-left: 0;
+    width: 100%;
   }
-
 
   .categoria {
     margin-top: 3%;
@@ -78,7 +89,7 @@ mat-icon {
 
   .logo {
     height: auto;
-    width: 80%;
+    width: 70%;
     margin-top: 5%;
   }
 
@@ -89,6 +100,16 @@ mat-icon {
 
   .mat-menu-item {
     font-size: 1.1rem;
+  }
+
+  .carrinho {
+    margin-top: -60px;
+    padding-left: 15%;
+    font-size: 1rem;
+  }
+
+  .carrinho-icon {
+    color: black;
   }
 }
 
@@ -112,3 +133,4 @@ mat-icon {
 .btn-margem {
   margin-top: 7%;
 }
+

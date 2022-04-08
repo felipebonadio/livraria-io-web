@@ -14,7 +14,9 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+    if (!localStorage.length) {     
+      this.carrinhoService.criarCarrinho();
+    }
   }
 
 

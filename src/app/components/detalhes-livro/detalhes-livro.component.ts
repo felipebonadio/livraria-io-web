@@ -32,20 +32,34 @@ export class DetalhesLivroComponent implements OnInit {
         this.errorMsg = err;
       }
     );
+    if (localStorage.length != 0) {
+      this.carrinhoService.buscarCarrinho();  
+    } else {
+      this.carrinhoService.criarCarrinho();
+    }   
   }
 
   adicionarItemAoCarrinho(livro: Livro) {
-    this.carrinhoService.adicionarAoCarrinho(this.converterParaLivroCarrinho(livro));
+    let livroCarrinho = this.converterParaLivroCarrinho(livro);
+    let item = this.converterParaItem(livroCarrinho)
+    return this.carrinhoService.adicionarAoCarrinho(item);
   }
 
   converterParaLivroCarrinho(livro: Livro): LivroCarrinhoDTO {
     return {
       id: livro.id,
       capa: livro.capa,
-      titulo:livro.titulo,
+      titulo: livro.titulo,
       preco: livro.preco
-    }
+    };
   }
 
-
+  converterParaItem(livro: LivroCarrinhoDTO): Item {
+    return {
+      id: livro.id,
+      livroCarrinhoDTO: livro,
+      quantidadeDeLivros: 1,
+      precoItem: livro.preco,
+    };
+  }
 }

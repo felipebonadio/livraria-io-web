@@ -1,0 +1,67 @@
+<div class="container">
+    <form (ngSubmit)="onSave(livro)" [formGroup]="livroForm">
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Titulo</mat-label>
+          <input matInput formControlName="titulo" type="text" />
+        </mat-form-field>
+     
+      <mat-form-field appearance="fill">
+        <mat-label>Sumario</mat-label>
+        <input matInput formControlName="sumario" type="text" />
+      </mat-form-field>
+   
+      <mat-form-field appearance="fill">
+        <mat-label>Preco</mat-label>
+        <input matInput formControlName="preco" type="number" />
+      </mat-form-field>
+    
+      <mat-form-field appearance="fill">
+        <mat-label>Numero de Paginas</mat-label>
+        <input matInput formControlName="numeroPaginas" type="number" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Isbn</mat-label>
+        <input matInput formControlName="isbn" type="text" />
+      </mat-form-field>   
+
+      <!-- <mat-form-field appearance="fill">
+        <mat-label>Data de Publicacao</mat-label>
+        <input matInput formControlName="dataPublicacao" type="text" />
+      </mat-form-field>   -->
+
+      <mat-form-field appearance="fill">
+        <mat-label>Capa</mat-label>
+        <input matInput formControlName="capa" type="text" />
+      </mat-form-field>  
+
+      <mat-form-field appearance="fill">
+        <mat-label>Autores</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let autor of autores" [value]="autor">
+            {{autor.nome}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Categorias</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let categoria of categorias" [value]="categoria">
+            {{categoria.nome}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>      
+    </div>
+    <div>
+      <button type="submit" mat-stroked-button color="primary">
+        Salvar
+      </button>
+      </div>
+    </form>
+  
+    <button mat-stroked-button color="accent" routerLink="">
+      Cancelar
+    </button>
+  </div>

@@ -1,9 +1,7 @@
-import { identifierName } from '@angular/compiler';
-import { localizedString } from '@angular/compiler/src/output/output_ast';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import { Item } from '../model/item';
-import { Livro } from '../model/livro';
 import { LivroCarrinhoDTO } from '../model/livroCarrinho';
 
 @Injectable({
@@ -12,63 +10,59 @@ import { LivroCarrinhoDTO } from '../model/livroCarrinho';
 export class CarrinhoService {
   livros: Item[] = [];
 
-  private storage: Storage;
+  private storage: Storage = window.localStorage;
 
-  constructor() {
-    this.storage = window.localStorage;
+  carrinho: any;
+
+  carrinhoId: any;
+
+  constructor(private http: HttpClient) {
   }
 
-  adicionarAoCarrinho(livro: LivroCarrinhoDTO) {
-    this.livros = JSON.parse(this.storage.getItem('carrinho') || '[]');
-    this.livros.push(this.converterParaItem(livro));
-    this.storage.setItem('carrinho', JSON.stringify(this.livros));
+  adicionarAoCarrinho(item: Item) {
+    let carrinhoId = JSON.parse(localStorage.getItem('carrinho') || '');
+    return this.http.put(environment.API_URL + '/carrinhos/adicionar/' + carrinhoId, item).subscribe()
   }
 
-  aumentarItem(id: number) {
-    this.livros = JSON.parse(this.storage.getItem('carrinho') || '[]');
-    console.log(this.livros);
-    this.livros.forEach((livro) => {
-      if (livro.id == id) {
-        livro.quantidadeDeLivros++;
-      }
-    });
-    this.storage.setItem('carrinho', JSON.stringify(this.livros));
-    location.reload();
+  aumentarItem(itemId: number) {    
+    location.reload()
+    this.http.put(environment.API_URL + '/itens/aumentar/'+ itemId, null).subscribe();
   }
 
-  diminuirItem(id: number) {
-    this.livros = JSON.parse(this.storage.getItem('carrinho') || '[]');
-    console.log(this.livros);
-    this.livros.forEach((livro) => {
-      if (livro.id == id) {
-        livro.quantidadeDeLivros--;
-        if(livro.quantidadeDeLivros==0 && livro.id == id){
-          this.livros.pop();
-        }
-      }
-    });
-    this.storage.setItem('carrinho', JSON.stringify(this.livros));
-    location.reload();
+  diminuirItem(itemId: number):void {
+    location.reload()
+    this.http.put(environment.API_URL + '/itens/diminuir/' + itemId, null).subscribe();    
   }
 
+  criarCarrinho() {
+    this.http
+      .post(environment.API_URL + '/carrinhos/criar', null)
+      .subscribe((response) => {
+        this.carrinho = response;
+        this.storage.setItem('carrinho', JSON.stringify(this.carrinho['id']));
+      });
+  }
+
+  buscarCarrinho(){
+    let carrinhoId = JSON.parse(localStorage.getItem('carrinho') || '');
+    return this.http.get(environment.API_URL+'/carrinhos/'+ carrinhoId)    
+  }
 
   buscarLivros() {
-    if (this.storage) {
-      return JSON.parse(this.storage.getItem('carrinho') || '{}');
-    }
-    return null;
+    let carrinhoId = JSON.parse(localStorage.getItem('carrinho') || '');
+    return this.http.get(environment.API_URL + '/carrinhos/' + carrinhoId)
   }
 
-  removerDoCarrinho(key: string): boolean {
-    if (this.storage) {
-      this.storage.removeItem(key);
-      return true;
-    }
-    return false;
+  removerDoCarrinho(carrinhoId: number, item: Item) {
+    location.reload()
+    return this.http.put(environment.API_URL + '/carrinhos/remover/' + carrinhoId, item).subscribe();
   }
 
   limparCarrinho(): boolean {
     if (this.storage) {
+      let carrinhoId = this.storage.getItem('carrinho');
+      console.log(environment.API_URL + '/carrinhos/' + carrinhoId);
+      this.http.delete(environment.API_URL + '/carrinhos/' + carrinhoId).subscribe();
       this.storage.clear();
       return true;
     }
@@ -77,7 +71,7 @@ export class CarrinhoService {
 
   converterParaItem(livro: LivroCarrinhoDTO): Item {
     return {
-      id:livro.id,
+      id: livro.id,
       livroCarrinhoDTO: livro,
       quantidadeDeLivros: 1,
       precoItem: livro.preco,

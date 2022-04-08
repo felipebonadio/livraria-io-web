@@ -27,4 +27,8 @@ export class LivrosService {
 		const params = request;
 		return this.http.get(environment.API_URL + '/livros', {params});
 	}
+
+  salvarLivro(livro : Livro): Observable<Livro> {
+    return this.http.post<Livro>(environment.API_URL + '/livros', livro);
+  }
 }

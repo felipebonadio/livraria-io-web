@@ -18,6 +18,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { CategoriasComponent } from './components/categorias/categorias.component';
 import { PesquisaComponent } from './components/pesquisa/pesquisa.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
 import {
   MatPaginatorIntl,
   MatPaginatorModule,
@@ -25,6 +28,7 @@ import {
 import { getPortuguesPaginatorIntl } from './utils/ptbr-paginator-intl';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { CarrinhoComponent } from './components/carrinho/carrinho.component';
+import { CriarLivroComponent } from './components/criar-livro/criar-livro.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +42,7 @@ import { CarrinhoComponent } from './components/carrinho/carrinho.component';
     CategoriasComponent,
     PesquisaComponent,
     CarrinhoComponent,
+    CriarLivroComponent,
   ],
 
   imports: [
@@ -53,7 +58,10 @@ import { CarrinhoComponent } from './components/carrinho/carrinho.component';
     ReactiveFormsModule,
     FormsModule,
     MatPaginatorModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule
   ],
   providers: [
     { provide: MatPaginatorIntl, useValue: getPortuguesPaginatorIntl() },

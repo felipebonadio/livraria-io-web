@@ -9,6 +9,15 @@
   margin: 0;
 }
 
+#mat-paginator-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 8px;
+  flex-wrap: wrap-reverse;
+  width: 90%;
+}
+
 .centro {
   display: flex;
   align-items: center;
@@ -61,7 +70,7 @@ a {
   color: black;
 }
 
-span{
+span {
   font-weight: bold;
   font-size: 1.5rem;
 }

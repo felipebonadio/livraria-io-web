@@ -7,11 +7,11 @@
   <table>
     <tr>
       <th>Item</th>
-      <th class="largura-menor">Qtd</th>
-      <th class="largura-menor">Preço</th>
-      <th class="largura-menor">Total</th>
+      <th class="largura-menor">Quantidade</th>
+      <th class="largura-menor center">Preço</th>
+      <th class="largura-menor center">Total</th>
     </tr>
-    <tr *ngFor="let item of items">
+    <tr *ngFor="let item of carrinho.itensDTO">
       <td>
         <div class="conteudo-item">
           <div><img class="capa" src="{{ item.livroCarrinhoDTO.capa }}" alt="" /></div>
@@ -20,21 +20,20 @@
       </td>
       <td> 
         <div class="inputECtrls">
-          <button class="ctrl" (click)="diminuirItem(item.livroCarrinhoDTO.id)">-</button>       
-          <input
-            class="largura-input"
-            [ngModel]="item.quantidadeDeLivros"
-            (ngModelChange)="aumentarItem(item.livroCarrinhoDTO.id)"
-            type="number"
-            min="0"
-            name=""
-            id=""
-          />
-          <button class="ctrl"(click)="aumentarItem(item.livroCarrinhoDTO.id)">+</button>
+          <button *ngIf="item.quantidadeDeLivros > 1" class="ctrl" (click)="diminuirItem(item.id)">-</button>
+          <button *ngIf="item.quantidadeDeLivros == 1" class="ctrl" (click)="removerItem(carrinho.id, item)">-</button>         
+          {{item.quantidadeDeLivros}}
+          <button class="ctrl"(click)="aumentarItem(item.id)">+</button>
         </div>        
       </td>
-      <td>{{ item.livroCarrinhoDTO.preco | currency: "BRL" }}</td>
-      <td>{{ calcularPreco(item.livroCarrinhoDTO.preco, item.quantidadeDeLivros) | currency: "BRL" }}</td>
+      <td class="center">{{ item.livroCarrinhoDTO.preco | currency: "BRL" }}</td>
+      <td class="center">{{ calcularPreco(item.livroCarrinhoDTO.preco, item.quantidadeDeLivros) | currency: "BRL" }}</td>
     </tr>
   </table>
+  <div class="precoTotal">
+    <div>Preço final</div>
+    <div>
+    {{carrinho.precoTotal | currency: "BRL" }}
+  </div>
+  </div>
 </div>
