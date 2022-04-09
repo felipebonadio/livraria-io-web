@@ -22,7 +22,8 @@ export class CriarLivroComponent implements OnInit {
 
   error: Error | undefined;
 
-  constructor(private formBuilder: FormBuilder, private livroService : LivrosService, private autorService: AutorService, private categoriaService: CategoriaService) { }
+  constructor(private formBuilder: FormBuilder, private livroService : LivrosService,
+     private autorService: AutorService, private categoriaService: CategoriaService) { }
 
   ngOnInit(): void {
     this.buscarAutores();
@@ -47,11 +48,11 @@ export class CriarLivroComponent implements OnInit {
       this.livro.preco = this.livroForm.value.preco;
       this.livro.numeroPaginas = this.livroForm.value.numeroPaginas;
       this.livro.isbn = this.livroForm.value.isbn;
-      //this.livro.dataPublicacao = this.livroForm.value.dataPublicacao; 
+      this.livro.dataPublicacao = this.livroForm.value.dataPublicacao; 
       this.livro.capa = this.livroForm.value.capa; 
-      this.livro.categoriaDTO = this.livroForm.value.categoria; 
-      this.livro.autorDTO = this.livroForm.value.autor;          
-
+      this.livro.categoriaDTO = this.livroForm.value.categoriaDTO; 
+      this.livro.autorDTO = this.livroForm.value.autorDTO;          
+      console.log(this.livro)
       this.livroService.salvarLivro(livro).subscribe(
         (newLivro) => {
           this.livro = newLivro;          

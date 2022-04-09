@@ -26,10 +26,10 @@
         <input matInput formControlName="isbn" type="text" />
       </mat-form-field>   
 
-      <!-- <mat-form-field appearance="fill">
+      <mat-form-field appearance="fill">
         <mat-label>Data de Publicacao</mat-label>
-        <input matInput formControlName="dataPublicacao" type="text" />
-      </mat-form-field>   -->
+        <input matInput formControlName="dataPublicacao" type="date" />
+      </mat-form-field>  
 
       <mat-form-field appearance="fill">
         <mat-label>Capa</mat-label>
@@ -38,7 +38,7 @@
 
       <mat-form-field appearance="fill">
         <mat-label>Autores</mat-label>
-        <mat-select>
+        <mat-select formControlName="autorDTO">
           <mat-option *ngFor="let autor of autores" [value]="autor">
             {{autor.nome}}
           </mat-option>
@@ -47,7 +47,7 @@
 
       <mat-form-field appearance="fill">
         <mat-label>Categorias</mat-label>
-        <mat-select>
+        <mat-select formControlName="categoriaDTO">
           <mat-option *ngFor="let categoria of categorias" [value]="categoria">
             {{categoria.nome}}
           </mat-option>
