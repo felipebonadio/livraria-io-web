@@ -29,6 +29,8 @@ import { getPortuguesPaginatorIntl } from './utils/ptbr-paginator-intl';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { CarrinhoComponent } from './components/carrinho/carrinho.component';
 import { CriarLivroComponent } from './components/criar-livro/criar-livro.component';
+import { CriarAutorComponent } from './components/criar-autor/criar-autor.component';
+import { CriarCategoriaComponent } from './components/criar-categoria/criar-categoria.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,8 @@ import { CriarLivroComponent } from './components/criar-livro/criar-livro.compon
     PesquisaComponent,
     CarrinhoComponent,
     CriarLivroComponent,
+    CriarAutorComponent,
+    CriarCategoriaComponent,
   ],
 
   imports: [

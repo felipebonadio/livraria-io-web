@@ -1,0 +1,23 @@
+<div class="container">
+    <form (ngSubmit)="onSave(categoria)" [formGroup]="categoriaForm">
+      <div>
+        <mat-form-field class="nome" appearance="fill">
+          <mat-label>Nome</mat-label>
+          <input matInput formControlName="nome" type="text" />
+        </mat-form-field>
+     
+      <mat-form-field class="descricao" appearance="fill">
+        <mat-label>Descrição</mat-label>
+        <textarea matInput formControlName="descricao" type="text"></textarea>
+      </mat-form-field>     
+    </div>
+    <div class="botoes">
+      <button class="salvar" type="submit" mat-stroked-button color="primary">
+        Salvar
+      </button>      
+      <button class="cancelar" mat-stroked-button color="accent" routerLink="">
+        Cancelar
+      </button>
+    </div>
+  </form>    
+</div>

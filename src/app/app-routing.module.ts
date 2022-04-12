@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CarrinhoComponent } from './components/carrinho/carrinho.component';
 import { CategoriasComponent } from './components/categorias/categorias.component';
+import { CriarAutorComponent } from './components/criar-autor/criar-autor.component';
+import { CriarCategoriaComponent } from './components/criar-categoria/criar-categoria.component';
 import { CriarLivroComponent } from './components/criar-livro/criar-livro.component';
 import { DetalhesLivroComponent } from './components/detalhes-livro/detalhes-livro.component';
 import { PesquisaComponent } from './components/pesquisa/pesquisa.component';
@@ -14,7 +16,9 @@ const routes: Routes = [
   { path: 'categoria/:nome', component: CategoriasComponent },
   { path: 'pesquisa/:nome', component: PesquisaComponent },
   { path: 'carrinho', component: CarrinhoComponent },
-  { path: 'criar', component: CriarLivroComponent },
+  { path: 'criarlivro', component: CriarLivroComponent },
+  { path: 'criarautor', component: CriarAutorComponent },
+  { path: 'criarcategoria', component: CriarCategoriaComponent },
   { path: '**', component: PaginaErroComponent }
   
 ];

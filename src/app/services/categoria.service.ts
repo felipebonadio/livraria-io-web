@@ -12,4 +12,8 @@ export class CategoriaService {
   buscarTodasCategorias(): Observable<Categoria[]> {
     return this.http.get<Categoria[]>(environment.API_URL + '/categorias');
   }
+
+  salvarCategoria(categoria : Categoria): Observable<Categoria> {
+    return this.http.post<Categoria>(environment.API_URL + '/categorias', categoria);
+  }
 }
