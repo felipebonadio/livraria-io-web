@@ -9,25 +9,25 @@ import { CarrinhoService } from 'src/app/services/carrinho.service';
   styleUrls: ['./carrinho.component.css'],
 })
 export class CarrinhoComponent implements OnInit {
-  
+
   carrinho: any;
 
   constructor(private carrinhoService: CarrinhoService) {}
 
   ngOnInit(): void {
     if (localStorage.length != 0) {
-      this.carrinhoService.buscarCarrinho();  
+      this.carrinhoService.buscarCarrinho();
     } else {
       this.carrinhoService.criarCarrinho();
     }
-    setTimeout(() => {this.buscarLivros()}, 1*1000);    
+    setTimeout(() => {this.buscarLivros()}, 1*200);
   }
 
-  buscarLivros() {    
+  buscarLivros() {
     return this.carrinhoService
       .buscarLivros()
       .subscribe((response) => (this.carrinho = response));
-  }  
+  }
 
   calcularPreco(a: number, b: number) {
     return a * b;
