@@ -58,12 +58,13 @@ mat-icon {
 
 .carrinho {
   margin-top: 3%;
-  margin-left: 60%;
+  margin-left: 20%;
   vertical-align: center;
 }
 
-.carrinho-icon {
+.icone {
   color: #5584ac;
+  margin-right: 15% ;
 }
 
 @media (max-width: 768px) {
@@ -104,11 +105,11 @@ mat-icon {
 
   .carrinho {
     margin-top: -60px;
-    padding-left: 15%;
+    padding-left: 55%;
     font-size: 1rem;
   }
 
-  .carrinho-icon {
+  .icone {
     color: black;
   }
 }

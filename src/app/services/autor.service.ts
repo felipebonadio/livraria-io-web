@@ -14,4 +14,8 @@ export class AutorService {
   buscarTodosAutores() : Observable<Autor[]>{
     return this.http.get<Autor[]>(environment.API_URL + '/autores');
   }
+
+  salvarAutor(autor: Autor) : Observable<Autor>{
+    return this.http.post<Autor>(environment.API_URL + '/autores', autor);
+  }
 }

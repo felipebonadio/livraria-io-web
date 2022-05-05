@@ -1,0 +1,47 @@
+.container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.nome{
+  width: 30rem;
+}
+
+.email{
+  width: 30rem;
+}
+
+.descricao{
+  width: 30rem;
+}
+
+.botoes{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.salvar{
+  width: 10rem;
+}
+
+.cancelar{
+  width: 10rem;
+}
+
+@media (max-width: 768px) {
+  .nome{
+    width: 20rem;
+  }
+
+  .email{
+    width: 15rem;
+  }
+
+  .descricao{
+    width: 15rem;
+  }
+}

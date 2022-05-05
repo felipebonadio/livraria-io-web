@@ -25,11 +25,12 @@ import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginato
 import { getPortuguesPaginatorIntl } from './utils/ptbr-paginator-intl';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { CarrinhoComponent } from './components/carrinho/carrinho.component';
-import { CriarLivroComponent } from './components/criar-livro/criar-livro.component';
-import { CriarAutorComponent } from './components/criar-autor/criar-autor.component';
-import { CriarCategoriaComponent } from './components/criar-categoria/criar-categoria.component';
+import { CriarLivroComponent } from './components/admin/criar-livro/criar-livro.component';
+import { CriarAutorComponent } from './components/admin/criar-autor/criar-autor.component';
+import { CriarCategoriaComponent } from './components/admin/criar-categoria/criar-categoria.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { CarouselComponent } from './components/carousel/carousel.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { CarouselComponent } from './components/carousel/carousel.component';
     CriarAutorComponent,
     CriarCategoriaComponent,
     CarouselComponent,
+    AdminComponent,
   ],
 
   imports: [
