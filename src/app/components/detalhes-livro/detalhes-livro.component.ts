@@ -4,7 +4,7 @@ import { Item } from 'src/app/model/item';
 import { Livro } from 'src/app/model/livro';
 import { LivroCarrinhoDTO } from 'src/app/model/livroCarrinho';
 import { CarrinhoService } from 'src/app/services/carrinho.service';
-import { DetalhesLivroService } from '../../services/detalhes-livro-service';
+import { DetalhesLivroService } from '../../services/detalhes-livro.service';
 
 @Component({
   selector: 'app-detalhes-livro',
@@ -33,10 +33,10 @@ export class DetalhesLivroComponent implements OnInit {
       }
     );
     if (localStorage.length != 0) {
-      this.carrinhoService.buscarCarrinho();  
+      this.carrinhoService.buscarCarrinho();
     } else {
       this.carrinhoService.criarCarrinho();
-    }   
+    }
   }
 
   adicionarItemAoCarrinho(livro: Livro) {

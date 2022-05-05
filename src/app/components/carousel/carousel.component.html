@@ -4,7 +4,9 @@
 
   <ng-container class="tamanho" *ngFor="let livro of livros">
     <ng-template carouselSlide>
+      <a [owlRouterLink]="['/livro', livro.id]">
       <img [src]="livro.capa" [alt]="livro.titulo" [title]="livro.titulo">
+    </a>
     </ng-template>
   </ng-container>
 

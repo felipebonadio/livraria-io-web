@@ -1,14 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable, throwError } from 'rxjs';
-import { Livro } from 'src/app/model/livro';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Livro } from '../model/livro';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class DetalhesLivroService {
-  
 
   constructor(private http: HttpClient) {}
 
