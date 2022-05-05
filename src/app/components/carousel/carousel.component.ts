@@ -6,19 +6,20 @@ import { LivrosService } from 'src/app/services/livros.service';
 @Component({
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
-  styleUrls: ['./carousel.component.css']
+  styleUrls: ['./carousel.component.css'],
 })
 export class CarouselComponent implements OnInit {
-
-  livros : Livro[] = [];
-  constructor(private livroService: LivrosService) { }
+  livros: Livro[] = [];
+  constructor(private livroService: LivrosService) {}
 
   ngOnInit(): void {
     this.buscarLancamentos();
   }
 
-  buscarLancamentos(){
-    return this.livroService.buscarLancamentos().subscribe( livros =>this.livros = livros)
+  buscarLancamentos() {
+    return this.livroService
+      .buscarLancamentos()
+      .subscribe((livros) => (this.livros = livros));
   }
 
   customOptions: OwlOptions = {
@@ -35,9 +36,7 @@ export class CarouselComponent implements OnInit {
       },
       1000: {
         items: 1,
-      }
-    }
-  }
-
-
+      },
+    },
+  };
 }

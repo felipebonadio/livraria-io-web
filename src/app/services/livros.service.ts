@@ -14,25 +14,31 @@ export class LivrosService {
   buscarLivrosPorCategoria(nome: string, request: any): Observable<any> {
     const params = request;
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-    return this.http.get<Livro[]>(environment.API_URL + '/livros/categorias/' + nome, {params});
+    return this.http.get<Livro[]>(
+      environment.API_URL + '/livros/categorias/' + nome,
+      { params }
+    );
   }
 
   buscarLivrosPorTituloOuAutor(nome: string, request: any): Observable<any> {
     const params = request;
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-    return this.http.get<Livro[]>(environment.API_URL + '/livros/procurar/' + nome, {params});
+    return this.http.get<Livro[]>(
+      environment.API_URL + '/livros/procurar/' + nome,
+      { params }
+    );
   }
 
   buscarTodosLivros(request: any): Observable<any> {
-		const params = request;
-		return this.http.get(environment.API_URL + '/livros', {params});
-	}
+    const params = request;
+    return this.http.get(environment.API_URL + '/livros', { params });
+  }
 
-  buscarLancamentos(): Observable<Livro[]>{
+  buscarLancamentos(): Observable<Livro[]> {
     return this.http.get<Livro[]>(environment.API_URL + '/livros/lancamentos');
   }
 
-  salvarLivro(livro : Livro): Observable<Livro> {
+  salvarLivro(livro: Livro): Observable<Livro> {
     return this.http.post<Livro>(environment.API_URL + '/livros', livro);
   }
 }
