@@ -1,0 +1,22 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+button{
+  width: 20rem;
+}
+
+.autor{
+  margin: 3%;
+}
+
+.livro{
+  margin: 3%;
+}
+
+.categoria{
+  margin: 3%;
+}

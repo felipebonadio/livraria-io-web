@@ -1,11 +1,22 @@
-<div>
-  <button mat-raised-button [routerLink]='["/criarlivro"]' color="primary">Criar Livro</button>
-</div>
+<div class="container">
 
-<div>
-  <button mat-raised-button [routerLink]='["/criarautor"]'  color="primary">Criar Autor</button>
-</div>
+  <div class="livro">
+    <button mat-raised-button [routerLink]="['/criarlivro']" color="primary">
+      Criar Livro
+    </button>
+  </div>
 
-<div>
-  <button mat-raised-button [routerLink]='["/criarcategoria"]' color="primary">Criar Categoria</button>
+  <div class="autor">
+    <button mat-raised-button [routerLink]="['/criarautor']" color="primary">
+      Criar Autor
+    </button>
+  </div>
+
+  <div class="categoria">
+    <button
+      mat-raised-button [routerLink]="['/criarcategoria']"  color="primary">
+      Criar Categoria
+    </button>
+  </div>
+
 </div>
