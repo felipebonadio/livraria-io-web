@@ -19,18 +19,17 @@ import { CategoriasComponent } from './components/categorias/categorias.componen
 import { PesquisaComponent } from './components/pesquisa/pesquisa.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule} from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
-import {
-  MatPaginatorIntl,
-  MatPaginatorModule,
-} from '@angular/material/paginator';
+import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
 import { getPortuguesPaginatorIntl } from './utils/ptbr-paginator-intl';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { CarrinhoComponent } from './components/carrinho/carrinho.component';
 import { CriarLivroComponent } from './components/criar-livro/criar-livro.component';
 import { CriarAutorComponent } from './components/criar-autor/criar-autor.component';
 import { CriarCategoriaComponent } from './components/criar-categoria/criar-categoria.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { CarouselComponent } from './components/carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +46,7 @@ import { CriarCategoriaComponent } from './components/criar-categoria/criar-cate
     CriarLivroComponent,
     CriarAutorComponent,
     CriarCategoriaComponent,
+    CarouselComponent,
   ],
 
   imports: [
@@ -65,7 +65,8 @@ import { CriarCategoriaComponent } from './components/criar-categoria/criar-cate
     MatProgressSpinnerModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    CarouselModule
   ],
   providers: [
     { provide: MatPaginatorIntl, useValue: getPortuguesPaginatorIntl() },

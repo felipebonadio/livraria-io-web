@@ -1,0 +1,13 @@
+<div class="centro">
+<div class="carousel">
+<owl-carousel-o [options]="customOptions">
+
+  <ng-container class="tamanho" *ngFor="let livro of livros">
+    <ng-template carouselSlide>
+      <img [src]="livro.capa" [alt]="livro.titulo" [title]="livro.titulo">
+    </ng-template>
+  </ng-container>
+
+</owl-carousel-o>
+</div>
+</div>

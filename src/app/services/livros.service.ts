@@ -28,6 +28,10 @@ export class LivrosService {
 		return this.http.get(environment.API_URL + '/livros', {params});
 	}
 
+  buscarLancamentos(): Observable<Livro[]>{
+    return this.http.get<Livro[]>(environment.API_URL + '/livros/lancamentos');
+  }
+
   salvarLivro(livro : Livro): Observable<Livro> {
     return this.http.post<Livro>(environment.API_URL + '/livros', livro);
   }

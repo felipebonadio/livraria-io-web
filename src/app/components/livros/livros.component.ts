@@ -13,12 +13,14 @@ export class LivrosComponent implements OnInit {
   livros: Livro[] = [];
   totalElements: number = 0;
 
+  lancamentos: Livro[] = [];
+
   constructor(private service: LivrosService) { }
 
   ngOnInit(): void {
     this.getLivros({ page: '0', size: '10' });
   }
-
+  
   private getLivros(request: { page: string; size: string; }): void {
     this.service.buscarTodosLivros(request).subscribe(
       (data) => {
