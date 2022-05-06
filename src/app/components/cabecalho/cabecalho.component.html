@@ -1,12 +1,11 @@
 <div class="cabecalho">
-  <div>
     <a href="/"
       ><img
         class="logo"
         src="../../../assets/logo.png"
-        alt="Logo da plataforma com o nome Livraria io"
-    /></a>
-  </div>
+        alt="Logo da plataforma com o nome Livraria io"/>
+      </a>
+
   <form [formGroup]="searchForm" (ngSubmit)="procurarLivro()">
     <div class="search" id="Procurar">
       <input
@@ -21,7 +20,7 @@
       </button>
     </div>
   </form>
-  <div class="carrinho">
+  <div class="icones">
     <a [routerLink]="['carrinho']"  class="btn btn-modify" id="carrinho">
       <mat-icon class="icone">shopping_cart</mat-icon>
     </a>

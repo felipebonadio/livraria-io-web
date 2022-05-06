@@ -7,3 +7,10 @@
 .carousel{
   width: 15%;
 }
+
+@media (max-width: 768px) {
+
+  .carousel{
+    width: 40%;
+  }
+}

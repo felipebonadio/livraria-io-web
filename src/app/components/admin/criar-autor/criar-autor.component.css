@@ -6,6 +6,7 @@
 }
 
 .nome{
+  margin-top: 10%;
   width: 30rem;
 }
 
@@ -38,10 +39,10 @@
   }
 
   .email{
-    width: 15rem;
+    width: 20rem;
   }
 
   .descricao{
-    width: 15rem;
+    width: 20rem;
   }
 }

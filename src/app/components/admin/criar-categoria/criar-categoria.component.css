@@ -1,0 +1,30 @@
+.container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.nome{
+  margin-top: 10%;
+  width: 20rem;
+}
+
+.descricao{
+  width: 20rem;
+}
+
+.botoes{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.salvar{
+  width: 10rem;
+}
+
+.cancelar{
+  width: 10rem;
+}
