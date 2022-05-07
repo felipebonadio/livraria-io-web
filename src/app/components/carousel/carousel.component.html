@@ -1,15 +1,15 @@
 <div class="container">
 
   <div class="texto">
-    <h1>LANÇAMENTOS E PROMOÇÕES</h1>
+    <h1>ÚLTIMOS LANÇAMENTOS</h1>
   </div>
 
   <div class="col-2">
   <div class="carousel">
-    <owl-carousel-o [options]="customOptions">
+    <owl-carousel-o [options]="customOptions" id="Carousel">
       <ng-container class="tamanho" *ngFor="let livro of livros">
         <ng-template carouselSlide>
-          <a [owlRouterLink]="['/livro', livro.id]">
+          <a [owlRouterLink]="['/livro', livro.id]" id="LivroCarousel">
             <img
               [src]="livro.capa"
               [alt]="livro.titulo"
