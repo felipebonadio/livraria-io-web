@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Endereco } from 'src/app/model/endereco';
 import { Item } from 'src/app/model/item';
 import { Livro } from 'src/app/model/livro';
 import { LivroCarrinhoDTO } from 'src/app/model/livroCarrinho';
 import { CarrinhoService } from 'src/app/services/carrinho.service';
 import { DetalhesLivroService } from '../../services/detalhes-livro.service';
+import { ViacepServiceService } from '../viacep-service.service';
 
 @Component({
   selector: 'app-detalhes-livro',
@@ -14,12 +16,14 @@ import { DetalhesLivroService } from '../../services/detalhes-livro.service';
 export class DetalhesLivroComponent implements OnInit {
   item: Item = {} as Item;
   livro: Livro = {} as Livro;
+  endereco : Endereco = {} as Endereco;
   errorMsg: string | undefined;
 
   constructor(
     private route: ActivatedRoute,
     private service: DetalhesLivroService,
-    private carrinhoService: CarrinhoService
+    private carrinhoService: CarrinhoService,
+    private viacepService : ViacepServiceService
   ) {}
 
   ngOnInit(): void {
@@ -61,5 +65,16 @@ export class DetalhesLivroComponent implements OnInit {
       quantidadeDeLivros: 1,
       precoItem: livro.preco,
     };
+  }
+
+  buscarEndereco(cep: string){
+    this.viacepService.buscarEndereco(cep).subscribe(data =>{
+      this.endereco.cep = data.cep;
+      this.endereco.logradouro = data.logradouro;
+      this.endereco.bairro = data.bairro;
+      this.endereco.localidade = data.localidade;
+      this.endereco.uf = data.uf;
+      console.log(this.endereco)
+    });
   }
 }

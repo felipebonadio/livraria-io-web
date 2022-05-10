@@ -15,6 +15,9 @@
           <p data-test="livro-preco" id="Preco">
             <strong>Preço:</strong> {{ livro.preco | currency: "BRL" }}
           </p>
+          <p><input type="text" id="cep" name="cep" #cep (ngModel)="endereco.cep"></p>
+
+        <button type="button" (click)="buscarEndereco(endereco.cep)">Consultar</button>
         </div>
         <div>
           <button mat-raised-button [routerLink]='["/carrinho"]' (click) = "adicionarItemAoCarrinho(livro)" color="primary">COMPRAR</button>
