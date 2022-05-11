@@ -9,12 +9,9 @@ import { Endereco } from '../model/endereco';
 export class ViacepServiceService {
 
   constructor(private service: HttpClient) { }
-  CEP: String = '';
 
-  URL = 'viacep.com.br/ws/' + this.CEP +'/json/';
 
   buscarEndereco(cep: string) : Observable<Endereco>{
-    this.CEP = cep;
-    return this.service.get<Endereco>(this.URL);
+    return this.service.get<Endereco>('http://viacep.com.br/ws/'+ cep+'/json/');
   }
 }

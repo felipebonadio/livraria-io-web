@@ -6,7 +6,7 @@ import { Livro } from 'src/app/model/livro';
 import { LivroCarrinhoDTO } from 'src/app/model/livroCarrinho';
 import { CarrinhoService } from 'src/app/services/carrinho.service';
 import { DetalhesLivroService } from '../../services/detalhes-livro.service';
-import { ViacepServiceService } from '../viacep-service.service';
+import { ViacepServiceService } from '../../services/viacep-service.service';
 
 @Component({
   selector: 'app-detalhes-livro',
