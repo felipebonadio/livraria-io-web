@@ -18,6 +18,7 @@ export class DetalhesLivroComponent implements OnInit {
   livro: Livro = {} as Livro;
   endereco : Endereco = {} as Endereco;
   errorMsg: string | undefined;
+  entrega: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -74,7 +75,16 @@ export class DetalhesLivroComponent implements OnInit {
       this.endereco.bairro = data.bairro;
       this.endereco.localidade = data.localidade;
       this.endereco.uf = data.uf;
-      console.log(this.endereco)
+      this.entrega = true;
     });
+  }
+
+  calcularEntrega(){
+    let date: Date = new Date();
+    return date.setDate(date.getDate() + 5);
+  }
+
+  valorFrete(){
+    return Math.floor(Math.random() * 15);
   }
 }

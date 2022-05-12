@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {  LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
@@ -31,7 +31,10 @@ import { CriarCategoriaComponent } from './components/admin/criar-categoria/cria
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { registerLocaleData } from '@angular/common';
+import localePT from '@angular/common/locales/pt';
 
+registerLocaleData(localePT);
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,6 +75,7 @@ import { AdminComponent } from './components/admin/admin.component';
   ],
   providers: [
     { provide: MatPaginatorIntl, useValue: getPortuguesPaginatorIntl() },
+    { provide: LOCALE_ID, useValue: 'pt' }
   ],
   bootstrap: [AppComponent],
 })

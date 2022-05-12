@@ -12,22 +12,40 @@
   grid-template-columns: 50% 50%;
 }
 
+.box3 {
+  display: block;
+  align-content: center;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+
 .box-capa img {
   height: 300px;
   margin-left: 20%;
 }
 
 .box-preco {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
   font-size: 25px;
-  
+  justify-content: space-between;
 }
 
-.box3 {
-  display: block;
-  align-content: center;
-  word-wrap: break-word;
-  word-break: break-all;
+input {
+  border-radius: 5px;
+  text-align: center;
+  width: 150px;
+  font-size: 12pt;
+  height: 30px;
+  margin-bottom: 10px;
+}
+
+.endereco{
+  font-size: medium;
+  margin: 5px 0 5px 0;
 }
 
 .box3 h3 {
@@ -77,5 +95,10 @@ tr:nth-child(even) {
   }
   .titulo-coluna {
     width: 100%;
+  }
+
+  input {
+    border-radius: 3px;
+
   }
 }
