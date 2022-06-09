@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Item } from 'src/app/model/item';
 import { LivroCarrinhoDTO } from 'src/app/model/livroCarrinho';
 import { CarrinhoService } from 'src/app/services/carrinho.service';
@@ -12,7 +13,7 @@ export class CarrinhoComponent implements OnInit {
 
   carrinho: any;
 
-  constructor(private carrinhoService: CarrinhoService) {}
+  constructor(private carrinhoService: CarrinhoService, private route: Router) {}
 
   ngOnInit(): void {
     if (localStorage.length != 0) {
@@ -48,6 +49,10 @@ export class CarrinhoComponent implements OnInit {
 
   removerItem(carrinhoId : number, item: Item){
     this.carrinhoService.removerDoCarrinho(carrinhoId, item);
+  }
+
+  finalizarCompra(){
+    this.route.navigateByUrl('checkout');
   }
 
 }

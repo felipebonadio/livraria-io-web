@@ -10,6 +10,7 @@ import { PesquisaComponent } from './components/pesquisa/pesquisa.component';
 import { HomeComponent } from './home/home.component';
 import { PaginaErroComponent } from './pagina-erro/pagina-erro.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'criarlivro', component: CriarLivroComponent },
   { path: 'criarautor', component: CriarAutorComponent },
   { path: 'criarcategoria', component: CriarCategoriaComponent },
+  { path: 'checkout', component: CheckoutComponent },
   { path: 'admin', component: AdminComponent },
   { path: '**', component: PaginaErroComponent }
 

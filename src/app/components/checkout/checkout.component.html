@@ -1,0 +1,6 @@
+<div>
+<div *ngFor="let item of carrinho.itensDTO">
+  <div class="titulo-livro">{{item.livroCarrinhoDTO.titulo}}</div>
+</div>
+<div class="preco">{{carrinho.precoTotal | currency: "BRL"}}</div>
+</div>

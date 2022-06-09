@@ -24,14 +24,14 @@ export class CarrinhoService {
     return this.http.put(environment.API_URL + '/carrinhos/adicionar/' + carrinhoId, item).subscribe()
   }
 
-  aumentarItem(itemId: number) {    
+  aumentarItem(itemId: number) {
     location.reload()
     this.http.put(environment.API_URL + '/itens/aumentar/'+ itemId, null).subscribe();
   }
 
   diminuirItem(itemId: number):void {
     location.reload()
-    this.http.put(environment.API_URL + '/itens/diminuir/' + itemId, null).subscribe();    
+    this.http.put(environment.API_URL + '/itens/diminuir/' + itemId, null).subscribe();
   }
 
   criarCarrinho() {
@@ -45,7 +45,7 @@ export class CarrinhoService {
 
   buscarCarrinho(){
     let carrinhoId = JSON.parse(localStorage.getItem('carrinho') || '');
-    return this.http.get(environment.API_URL+'/carrinhos/'+ carrinhoId)    
+    return this.http.get(environment.API_URL+'/carrinhos/'+ carrinhoId)
   }
 
   buscarLivros() {

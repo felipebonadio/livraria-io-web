@@ -33,6 +33,7 @@ import { CarouselComponent } from './components/carousel/carousel.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { registerLocaleData } from '@angular/common';
 import localePT from '@angular/common/locales/pt';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 registerLocaleData(localePT);
 @NgModule({
@@ -52,6 +53,7 @@ registerLocaleData(localePT);
     CriarCategoriaComponent,
     CarouselComponent,
     AdminComponent,
+    CheckoutComponent,
   ],
 
   imports: [
