@@ -6,7 +6,7 @@ import { Endereco } from '../model/endereco';
 @Injectable({
   providedIn: 'root'
 })
-export class ViacepServiceService {
+export class ViacepService {
 
   constructor(private service: HttpClient) { }
 

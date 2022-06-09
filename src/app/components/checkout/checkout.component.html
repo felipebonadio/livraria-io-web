@@ -1,4 +1,27 @@
 <div>
+  <form [formGroup]="pessoaForm">
+    <div>
+      <mat-form-field class="nome" appearance="fill">
+        <mat-label>Nome</mat-label>
+        <input matInput formControlName="nome" type="text" />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="cpf" appearance="fill">
+        <mat-label>CPF</mat-label>
+        <input matInput formControlName="cpf" type="text" />
+      </mat-form-field>
+    </div>
+    
+    <div class="botoes">
+      <button class="salvar" type="submit" mat-stroked-button color="primary">
+        Salvar
+      </button>
+      <button class="cancelar" mat-stroked-button color="accent" routerLink="">
+        Cancelar
+      </button>
+    </div>
+  </form>
 <div *ngFor="let item of carrinho.itensDTO">
   <div class="titulo-livro">{{item.livroCarrinhoDTO.titulo}}</div>
 </div>

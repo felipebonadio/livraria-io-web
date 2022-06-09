@@ -6,7 +6,7 @@ import { Livro } from 'src/app/model/livro';
 import { LivroCarrinhoDTO } from 'src/app/model/livroCarrinho';
 import { CarrinhoService } from 'src/app/services/carrinho.service';
 import { DetalhesLivroService } from '../../services/detalhes-livro.service';
-import { ViacepServiceService } from '../../services/viacep-service.service';
+import { ViacepService } from '../../services/viacep.service';
 
 @Component({
   selector: 'app-detalhes-livro',
@@ -24,7 +24,7 @@ export class DetalhesLivroComponent implements OnInit {
     private route: ActivatedRoute,
     private service: DetalhesLivroService,
     private carrinhoService: CarrinhoService,
-    private viacepService : ViacepServiceService
+    private viacepService : ViacepService
   ) {}
 
   ngOnInit(): void {
