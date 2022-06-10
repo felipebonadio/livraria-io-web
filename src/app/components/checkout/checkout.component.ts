@@ -5,6 +5,7 @@ import { Carrinho } from 'src/app/model/carrinho';
 import { Endereco } from 'src/app/model/endereco';
 import { Pessoa } from 'src/app/model/pessoa';
 import { CarrinhoService } from 'src/app/services/carrinho.service';
+import { CheckoutService } from 'src/app/services/checkout.service';
 import { ViacepService } from 'src/app/services/viacep.service';
 
 @Component({
@@ -20,7 +21,7 @@ export class CheckoutComponent implements OnInit {
 
   endereco: Endereco = {} as Endereco;
 
-  constructor( private route: ActivatedRoute,
+  constructor( private checktoutService: CheckoutService,
                private carrinhoService: CarrinhoService,
                private formBuilder: FormBuilder,
                private viaCep: ViacepService) { }
@@ -50,7 +51,7 @@ export class CheckoutComponent implements OnInit {
     this.pessoa.carrinho = this.carrinho;
     this.endereco.numero = this.pessoaForm.value.numero;
     this.pessoa.endereco = this.endereco;
-    console.log(this.pessoa);
+    this.checktoutService.efetuarComprar(this.pessoa).subscribe(pessoa => this.pessoa = pessoa)};
   }
 
-}
+
