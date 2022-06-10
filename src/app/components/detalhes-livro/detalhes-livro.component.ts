@@ -70,11 +70,7 @@ export class DetalhesLivroComponent implements OnInit {
 
   buscarEndereco(){
     this.viacepService.buscarEndereco(this.endereco.cep).subscribe(data =>{
-      this.endereco.cep = data.cep;
-      this.endereco.logradouro = data.logradouro;
-      this.endereco.bairro = data.bairro;
-      this.endereco.localidade = data.localidade;
-      this.endereco.uf = data.uf;
+      this.endereco=data,
       this.entrega = true;
     });
   }

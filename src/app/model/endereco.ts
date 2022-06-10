@@ -9,4 +9,5 @@ export interface Endereco{
   gia: string;
   ddd: string;
   siafi: string;
+  numero: string;
 }

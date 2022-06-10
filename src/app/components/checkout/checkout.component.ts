@@ -37,9 +37,20 @@ export class CheckoutComponent implements OnInit {
     endereco:''
   });
 
-  buscarEndereco(cep: string){
-    this.viaCep.buscarEndereco(cep).subscribe(retorno =>
-      this.endereco = retorno)
+  buscarEndereco(){
+    this.viaCep.buscarEndereco(this.endereco.cep).subscribe(retorno =>{
+      this.endereco = retorno,
+      console.log(this.endereco)
+    })
+  }
+
+  comprar(){
+    this.pessoa.nome = this.pessoaForm.value.nome;
+    this.pessoa.cpf = this.pessoaForm.value.cpf;
+    this.pessoa.carrinho = this.carrinho;
+    this.endereco.numero = this.pessoaForm.value.numero;
+    this.pessoa.endereco = this.endereco;
+    console.log(this.pessoa);
   }
 
 }
