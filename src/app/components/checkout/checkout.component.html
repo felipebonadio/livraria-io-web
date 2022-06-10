@@ -1,55 +1,75 @@
-<div>
-  <div class="input-endereco">
-    <input matInput type="text" id="cep" [(ngModel)]="endereco.cep" />
-  </div>
-  <div class="botao-endereco">
-    <button mat-raised-button color="primary" type="button" (click)="buscarEndereco()">
-      Consulte o frete
-    </button>
-  </div>
-  <div class="endereco">
-    <input matInput type="text" disabled [ngModel]="endereco.logradouro"/>
-  </div>
-  <div class="bairro">
-    <input matInput type="text" disabled [ngModel]="endereco.bairro"/>
-  </div>
-  <div class="cidade">
-    <input matInput type="text" disabled [ngModel]="endereco.localidade"/>
-  </div>
-  <div class="estado">
-    <input matInput type="text" disabled [ngModel]="endereco.uf"/>
+<div class="container">
+  <div class="col-2">
+    <div class="input-endereco">
+      <input
+        type="text"
+        id="cep"
+        placeholder="CEP"
+        [(ngModel)]="endereco.cep"
+      />
+    </div>
+    <div class="botao-endereco">
+      <button
+        mat-raised-button
+        color="primary"
+        type="button"
+        (click)="buscarEndereco()"
+      >
+        Buscar endereço
+      </button>
+    </div>
+    <div class="endereco">
+      <input type="text" disabled [ngModel]="endereco.logradouro" />
+    </div>
+    <div class="bairro">
+      <input type="text" disabled [ngModel]="endereco.bairro" />
+    </div>
+    <div class="cidade">
+      <input type="text" disabled [ngModel]="endereco.localidade" />
+    </div>
+    <div class="estado">
+      <input type="text" disabled [ngModel]="endereco.uf" />
+    </div>
   </div>
 
   <form [formGroup]="pessoaForm" (ngSubmit)="comprar()">
-    <div>
-      <mat-form-field class="numero" appearance="fill">
-        <mat-label>Numero</mat-label>
-        <input matInput formControlName="numero" type="text" />
-      </mat-form-field>
+    <div class="col-2">
+      <div>
+        <input formControlName="numero" placeholder="Número" type="text" />
+      </div>
+
+      <div>
+        <input
+          formControlName="complemento"
+          placeholder="Complemento"
+          type="text"
+        />
+      </div>
+
+      <div>
+        <input formControlName="nome" placeholder="Nome" type="text" />
+      </div>
+
+      <div>
+        <input formControlName="cpf" placeholder="CPF" type="text" />
+      </div>
     </div>
-    <div>
-      <mat-form-field class="nome" appearance="fill">
-        <mat-label>Nome</mat-label>
-        <input matInput formControlName="nome" type="text" />
-      </mat-form-field>
-    </div>
-    <div>
-      <mat-form-field class="cpf" appearance="fill">
-        <mat-label>CPF</mat-label>
-        <input matInput formControlName="cpf" type="text" />
-      </mat-form-field>
-    </div>
-    <div class="botoes">
-      <button class="salvar" type="submit" mat-stroked-button color="primary">
+
+    <div class="col-2">
+      <button class="botao" type="submit" mat-stroked-button color="primary">
         Salvar
       </button>
-      <button class="cancelar" mat-stroked-button color="accent" routerLink="">
+      <button class="botao" mat-stroked-button color="accent" routerLink="">
         Cancelar
       </button>
     </div>
   </form>
-<div *ngFor="let item of carrinho.itensDTO">
-  <div class="titulo-livro">{{item.livroCarrinhoDTO.titulo}}</div>
 </div>
-<div class="preco">{{carrinho.precoTotal | currency: "BRL"}}</div>
+<div class="centro">
+  <div class="lista-capa" *ngFor="let item of carrinho.itensDTO">
+    <img class="capa" src="{{ item.livroCarrinhoDTO.capa }}" alt="" />
+  </div>
+  <div class="preco">
+    Preço total: {{ carrinho.precoTotal | currency: "BRL" }}
+  </div>
 </div>

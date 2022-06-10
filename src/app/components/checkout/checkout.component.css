@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+input {
+  height: 30px;
+  margin: 5px;
+  width: 300px;
+}
+
+.col-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+}
+
+.input-endereco input {
+  width: 200px !important;
+}
+
+.botao {
+  width: 150px;
+}
+
+.centro {
+  text-align: center;
+}
+.lista-capa {
+  display: inline;
+}
+
+.capa {
+  margin: 15px;
+  width: 10%;
+}
+
+.preco{
+  font-size: 25px;
+}

@@ -35,7 +35,9 @@ export class CheckoutComponent implements OnInit {
     nome:'',
     cpf:'',
     carrinho:'',
-    endereco:''
+    endereco:'',
+    numero:'',
+    complemento: ''
   });
 
   buscarEndereco(){
@@ -50,8 +52,9 @@ export class CheckoutComponent implements OnInit {
     this.pessoa.cpf = this.pessoaForm.value.cpf;
     this.pessoa.carrinho = this.carrinho;
     this.endereco.numero = this.pessoaForm.value.numero;
+    this.endereco.complemento = this.pessoaForm.value.complemento;
     this.pessoa.endereco = this.endereco;
-    this.checktoutService.efetuarComprar(this.pessoa).subscribe(pessoa => this.pessoa = pessoa)};
+    this.checktoutService.efetuarComprar(this.pessoa).subscribe(
+      pessoa => this.pessoa = pessoa),
+      window.alert('Obrigado ' + this.pessoa.nome + ', compra efetuada com sucesso!')};
   }
-
-
