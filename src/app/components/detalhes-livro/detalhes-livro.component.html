@@ -15,38 +15,7 @@
           <p data-test="livro-preco" id="Preco">
             <strong>Preço:</strong> {{ livro.preco | currency: "BRL" }}
           </p>
-
-          <!-- <div class="input-endereco">
-            <input type="text" id="cep" [(ngModel)]="endereco.cep" />
-          </div>
-          <div class="botao-endereco">
-            <button mat-raised-button color="primary" type="button" (click)="buscarEndereco()">
-              Consulte o frete
-            </button>
-          </div>
-
-          <div class="endereco" *ngIf="endereco">
-            <div>
-              {{ endereco.logradouro }}
-            </div>
-            <div>
-              {{ endereco.bairro }}
-            </div>
-            <div>
-              {{ endereco.localidade }}
-            </div>
-            <div *ngIf="entrega">
-              Entrega prevista para {{ calcularEntrega() | date }}
-
-            </div>
-            <div *ngIf="entrega">
-              Frete: {{valorFrete() | currency: "BRL" }}
-            </div>
-          </div> -->
-
-        </div>
-        <div>
-          <button mat-raised-button [routerLink]="['/carrinho']" (click)="adicionarItemAoCarrinho(livro)"
+          <button class="botao-adicionar" mat-raised-button [routerLink]="['/carrinho']" (click)="adicionarItemAoCarrinho(livro)"
             color="primary">
             Adicionar ao carrinho
           </button>

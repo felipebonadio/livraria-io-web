@@ -27,10 +27,12 @@
 
 .salvar{
   width: 10rem;
+  margin: 5px;
 }
 
 .cancelar{
   width: 10rem;
+  margin: 5px;
 }
 
 @media (max-width: 768px) {

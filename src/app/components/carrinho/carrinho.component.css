@@ -62,8 +62,8 @@ tr:nth-child(odd) {
 }
 
 .capa{
-    width: 60%; 
-    height: auto;   
+    width: 60%;
+    height: auto;
 }
 
 .precoTotal{
@@ -72,11 +72,16 @@ tr:nth-child(odd) {
   font-weight: bolder;
   font-size: 1.4rem;
   color: #5584ac;
-  display: grid;
-  grid-template-columns: 50% 50%;
-  width: 87%;
-  justify-items: flex-end;
+  justify-self: flex-end;
 }
+
+.finalizar{
+  width: 40%;
+  font-size: 20pt;
+  height: 90px;
+  margin-bottom: 50px;
+}
+
 @media (max-width: 1366px) {
   table {
     border-collapse: collapse;
@@ -100,7 +105,7 @@ tr:nth-child(odd) {
         display: grid;
         grid-template-columns: 20% 80%;
     }
-    
+
     .largura-menor{
         width: 20%;
     }

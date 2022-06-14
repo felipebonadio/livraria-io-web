@@ -22,9 +22,11 @@
 }
 
 .salvar{
-  width: 10rem;
+  width: 9rem;
+  margin: 5px;
 }
 
 .cancelar{
-  width: 10rem;
+  width: 9rem;
+  margin: 5px;
 }

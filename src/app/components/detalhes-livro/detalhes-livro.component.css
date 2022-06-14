@@ -17,8 +17,12 @@
   align-content: center;
   word-wrap: break-word;
   word-break: break-all;
+  padding-bottom: 20px;
 }
 
+.botao-adicionar{
+  margin-top: 60px;
+}
 
 .box-capa img {
   height: 300px;
@@ -99,6 +103,10 @@ tr:nth-child(even) {
 
   input {
     border-radius: 3px;
-
   }
+
+  .botao-adicionar{
+    margin-top: 20px;
+  }
+
 }
